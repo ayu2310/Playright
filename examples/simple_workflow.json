@@ -1,0 +1,50 @@
+{
+  "name": "Google Search Example",
+  "description": "A simple workflow that navigates to Google and performs a search",
+  "steps": [
+    {
+      "action": "navigate",
+      "url": "https://www.google.com",
+      "description": "Navigate to Google homepage"
+    },
+    {
+      "action": "wait",
+      "selector": "input[name='q']",
+      "selector_type": "css",
+      "timeout": 10,
+      "description": "Wait for search input field to load"
+    },
+    {
+      "action": "type",
+      "selector": "input[name='q']",
+      "selector_type": "css",
+      "text": "browser automation python",
+      "description": "Type search query"
+    },
+    {
+      "action": "click",
+      "selector": "input[name='btnK'], button[name='btnK']",
+      "selector_type": "css",
+      "description": "Click search button"
+    },
+    {
+      "action": "wait",
+      "selector": "#search",
+      "selector_type": "css",
+      "timeout": 10,
+      "description": "Wait for search results to load"
+    },
+    {
+      "action": "screenshot",
+      "path": "google_search_results.png",
+      "description": "Take screenshot of search results"
+    },
+    {
+      "action": "get_text",
+      "selector": "h3",
+      "selector_type": "css",
+      "key": "search_results",
+      "description": "Extract search result titles"
+    }
+  ]
+}
